@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import withBorder from './withBorder';
+import withContext from './withContext';
 
 const Container = styled.div`
     height: 100%;
@@ -7,7 +7,8 @@ const Container = styled.div`
     align-items: center;
     justify-content: center;
 
-    background-color: ${props => (props.dark ? 'lightgray' : 'white')};
+    background-color: ${props =>
+        props.dark ? 'rgba(0, 0, 0, 0.25)' : 'white'};
 `;
 
 const Number = styled.p`
@@ -28,4 +29,4 @@ function Big({ isImmutable, currentValue }: Props) {
     );
 }
 
-export default withBorder(Big);
+export default withContext(Big);

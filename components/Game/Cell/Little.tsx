@@ -1,6 +1,5 @@
 import styled from 'styled-components';
-
-import withBorder from './withBorder';
+import withContext from './withContext';
 
 const Container = styled.div`
     height: 100%;
@@ -34,4 +33,4 @@ function Little({ candidates }: Props) {
     );
 }
 
-export default withBorder(Little);
+export default withContext(Little);

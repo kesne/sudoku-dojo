@@ -8,10 +8,3 @@ export type CellShape = {
     column: number;
     block: number;
 };
-export type BigNumberShape = {
-    isImmutable: boolean;
-    currentValue: number;
-};
-export type LittleNumberShape = {
-    candidates: number[];
-};

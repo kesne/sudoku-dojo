@@ -1,16 +1,19 @@
 import { useReducer } from 'react';
-import dummyBoard from '../temp/dummyBoard';
+import dummyBoard from '../lib/dummyBoard';
+import reducer from '../lib/reducers';
+import { CellShape } from '../lib/CellShape';
 
-function reducer(state, action) {
-    switch (action.type) {
-        default:
-            console.log('UNRECOGNIZED ACTION');
-            return state;
-    }
+interface State {
+    dummyBoard: [number, number];
+    blocks: CellShape[][];
 }
 
 function useSudokuPuzzle() {
-    const [state, dispatch] = useReducer(reducer, dummyBoard);
+    const [state, dispatch]: [State, any] = useReducer(reducer, {
+        selected: [0, 0],
+        blocks: dummyBoard,
+    });
+    return [state, dispatch];
 }
 
 export default useSudokuPuzzle;

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { CellShape } from '../../temp/CellShapes';
+import { CellShape } from '../../lib/CellShape';
 import Big from './Cell/Big';
 import Little from './Cell/Little';
 
@@ -16,22 +16,15 @@ const Grid = styled.div`
 `;
 
 export default function Block({ cells }: Props) {
-    return (
-        <Grid>
-            {cells.map((cell: CellShape) => {
-                return cell.currentValue === 0 ? (
-                    <Little
-                        candidates={cell.candidates}
-                        key={`${cell.row} ${cell.column}`}
-                    />
-                ) : (
-                    <Big
-                        isImmutable={cell.isImmutable}
-                        currentValue={cell.currentValue}
-                        key={`${cell.row} ${cell.column}`}
-                    />
-                );
-            })}
-        </Grid>
-    );
+    const cellComponents = cells.map((cell: CellShape) => {
+        const shouldDisplayLittle = !cell.currentValue && cell.candidates;
+
+        return shouldDisplayLittle ? (
+            <Little {...cell} key={`${cell.row} ${cell.column}`} />
+        ) : (
+            <Big {...cell} key={`${cell.row} ${cell.column}`} />
+        );
+    });
+
+    return <Grid>{cellComponents}</Grid>;
 }
