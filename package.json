@@ -4,9 +4,7 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "dev": "next",
-        "build": "next build",
-        "start": "next start"
+        "dev": "parcel ./src/index.html"
     },
     "keywords": [],
     "author": "",
@@ -14,11 +12,13 @@
     "dependencies": {
         "immer": "^6.0.3",
         "next": "^9.3.3",
+        "parcel-bundler": "^1.12.4",
         "react": "^16.13.1",
         "react-dom": "^16.13.1",
         "styled-components": "^5.0.1"
     },
     "devDependencies": {
+        "@babel/core": "^7.9.0",
         "@types/node": "^13.9.5",
         "@types/react": "^16.9.27",
         "typescript": "^3.8.3"

@@ -1,4 +1,5 @@
 import produce from 'immer';
+import { CellShape } from '../CellShape';
 
 enum ActionType {
     SET_SELECTED_CELL = 'SET_SELECTED_CELL',
@@ -6,10 +7,15 @@ enum ActionType {
 }
 interface Action {
     type: ActionType;
-    selected?: [number, number, number];
+    selected?: [number, number];
 }
 
-const reducer = produce((draft: any, action: Action) => {
+interface State {
+    blocks: CellShape[][];
+    selected: [number, number]
+}
+
+const reducer = produce((draft: State, action: Action) => {
     switch (action.type) {
         case ActionType.SET_SELECTED_CELL:
             draft.selected = action.selected;

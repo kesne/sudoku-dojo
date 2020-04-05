@@ -18,7 +18,7 @@ const Sudoku = styled.div`
 
 //it will SCREAM if I don't use this interface to force 'selected' to [number, number]
 interface TESTEROONI {
-    selected: [number, number];
+    selected: Readonly<[number, number]>;
     dispatch: any;
 }
 const defaultState: TESTEROONI = { selected: [0, 0], dispatch: null };
